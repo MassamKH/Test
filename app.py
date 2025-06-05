@@ -162,9 +162,14 @@ def voir_fichier():
     return render_template("voir_fichier.html", nom=nom_fichier, stats=tableau.to_dict(orient="records"))
 
 
-
-
 if __name__ == "__main__":
-    os.makedirs("static/plots", exist_ok=True)
-    os.makedirs("static/images", exist_ok=True)
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+
+
+#if __name__ == "__main__":
+ #   os.makedirs("static/plots", exist_ok=True)
+  #  os.makedirs("static/images", exist_ok=True)
+   # app.run(debug=True)
